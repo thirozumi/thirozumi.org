@@ -1,4 +1,4 @@
-# gulp-jade-skeleton
+# gulp-jade-webapp
 
 ## Build
 
