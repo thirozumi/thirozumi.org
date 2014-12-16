@@ -2,8 +2,7 @@
 
 /*
  * $ npm install gulp -g
- * $ npm install gulp --save-dev
- * $ npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-livereload gulp-cache gulp-plumber gulp-jade --save-dev
+ * $ npm install browser-sync gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-cache gulp-plumber gulp-jade --save-dev
  */
 
 // load plugins
@@ -17,7 +16,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     clean = require('gulp-clean'),
     rename = require('gulp-rename'),
-    livereload = require('gulp-livereload'),
+    browsersync = require('browser-sync'),
     cache = require('gulp-cache'),
     plumber = require('gulp-plumber'),
     jade = require('gulp-jade');
@@ -36,7 +35,8 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/assets/styles'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/assets/styles'));
+    .pipe(gulp.dest('dist/assets/styles'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // scripts
@@ -52,7 +52,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist/assets/scripts'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/scripts'));
+    .pipe(gulp.dest('dist/assets/scripts'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // vendor scripts
@@ -64,7 +65,8 @@ gulp.task('vendor', function() {
     .pipe(gulp.dest('dist/assets/scripts'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/scripts'));
+    .pipe(gulp.dest('dist/assets/scripts'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // fonts
@@ -72,7 +74,8 @@ gulp.task('fonts', function() {
     return gulp.src([
         'app/assets/fonts/**/*'
     ])
-    .pipe(gulp.dest('dist/assets/fonts'));
+    .pipe(gulp.dest('dist/assets/fonts'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // images
@@ -84,7 +87,8 @@ gulp.task('images', function() {
         progressive: true,
         interlaced: true
     })))
-    .pipe(gulp.dest('dist/assets/images'));
+    .pipe(gulp.dest('dist/assets/images'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // templates
@@ -98,7 +102,8 @@ gulp.task('templates', function () {
     .pipe(jade({
         pretty: true
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(browsersync.reload({stream: true}));
 });
 
 // clean
@@ -107,13 +112,26 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+// browsersync
+gulp.task('browsersync', function() {
+  return browsersync.init(null, {
+    server: {
+      baseDir: './dist'
+    }
+  });
+});
+
+gulp.task('reload', function () {
+  browsersync.reload();
+});
+
 // default task
 gulp.task('default', ['clean'], function() {
     gulp.start('templates', 'styles', 'scripts', 'vendor', 'images', 'fonts');
 });
 
 // watch
-gulp.task('watch', function() {
+gulp.task('watch', ['browsersync'], function() {
 
     // watch templates
     gulp.watch('app/templates/**/*.jade', ['templates']);
@@ -123,14 +141,9 @@ gulp.task('watch', function() {
     gulp.watch('app/assets/scripts/**/*.js', ['scripts']);
     gulp.watch('app/assets/images/**/*', ['images']);
 
-    // create livereload server
-    var server = livereload();
-
     // watch any files in assets/, must be reload on change
     gulp.watch([
         '**/*.html',
         'dist/assets/**'
-    ]).on('change', function(file) {
-        server.changed(file.path);
-    });
+    ], ['reload']);
 });
