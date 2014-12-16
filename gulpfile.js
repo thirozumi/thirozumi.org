@@ -35,8 +35,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist/assets/styles'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
-    .pipe(gulp.dest('dist/assets/styles'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist/assets/styles'));
 });
 
 // scripts
@@ -52,8 +51,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist/assets/scripts'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/scripts'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist/assets/scripts'));
 });
 
 // vendor scripts
@@ -65,8 +63,7 @@ gulp.task('vendor', function() {
     .pipe(gulp.dest('dist/assets/scripts'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
-    .pipe(gulp.dest('dist/assets/scripts'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist/assets/scripts'));
 });
 
 // fonts
@@ -74,8 +71,7 @@ gulp.task('fonts', function() {
     return gulp.src([
         'app/assets/fonts/**/*'
     ])
-    .pipe(gulp.dest('dist/assets/fonts'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist/assets/fonts'));
 });
 
 // images
@@ -87,8 +83,7 @@ gulp.task('images', function() {
         progressive: true,
         interlaced: true
     })))
-    .pipe(gulp.dest('dist/assets/images'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist/assets/images'));
 });
 
 // templates
@@ -102,8 +97,7 @@ gulp.task('templates', function () {
     .pipe(jade({
         pretty: true
     }))
-    .pipe(gulp.dest('dist'))
-    .pipe(browsersync.reload({stream: true}));
+    .pipe(gulp.dest('dist'));
 });
 
 // clean
