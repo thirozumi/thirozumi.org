@@ -54,6 +54,14 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist/assets/scripts'));
 });
 
+// bower components
+gulp.task('bower', function() {
+    return gulp.src([
+      'app/assets/vendor/**/*'
+    ])
+    .pipe(gulp.dest('dist/assets/vendor'));
+} );
+
 // vendor scripts
 gulp.task('vendor', function() {
     return gulp.src([
@@ -78,11 +86,11 @@ gulp.task('fonts', function() {
 gulp.task('images', function() {
     return gulp.src('app/assets/images/**/*')
     .pipe(plumber())
-    .pipe(cache(imagemin({
+    .pipe(imagemin({
         optimizationLevel: 3,
         progressive: true,
         interlaced: true
-    })))
+    }))
     .pipe(gulp.dest('dist/assets/images'));
 });
 
@@ -124,7 +132,7 @@ gulp.task('reload', function () {
 
 // default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('templates', 'styles', 'scripts', 'vendor', 'images', 'fonts');
+    gulp.start('templates', 'styles', 'scripts', 'vendor', 'images', 'fonts', 'bower');
 });
 
 // watch
