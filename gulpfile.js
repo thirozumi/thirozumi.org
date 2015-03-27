@@ -2,7 +2,7 @@
 
 /*
  * $ npm install gulp -g
- * $ npm install browser-sync gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-cache gulp-plumber gulp-jade --save-dev
+ * $ npm install browser-sync del gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-rename gulp-cache gulp-plumber gulp-jade --save-dev
  */
 
 // load plugins
@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
-    clean = require('gulp-clean'),
+    del = require('del'),
     rename = require('gulp-rename'),
     browsersync = require('browser-sync'),
     cache = require('gulp-cache'),
@@ -101,9 +101,12 @@ gulp.task('templates', function () {
 });
 
 // clean
-gulp.task('clean', function() {
-    return gulp.src(['dist/assets/styles', 'dist/assets/scripts', 'dist/assets/images'], {read: false})
-    .pipe(clean());
+gulp.task('clean', function(cb) {
+  del([
+    'dist/assets/styles',
+    'dist/assets/scripts',
+    'dist/assets/images'
+  ], cb);
 });
 
 // browsersync
