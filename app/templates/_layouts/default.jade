@@ -7,7 +7,7 @@ html.no-js
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='assets/styles/main.min.css')
-    //-script(src='bower_components/modernizr/modernizr.js')
+    //-script(src='/libs/modernizr/modernizr.js')
   body
     <!--[if lt IE 8]>
     p.browsehappy
@@ -20,10 +20,18 @@ html.no-js
     block main
         p Hello world! This is HTML5 Boilerplate.
 
-    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-    script window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')
-    //-script(src='assets/scripts/vendor.min.js')
-    script(src='assets/scripts/main.min.js')
+    <!--[if lt IE 9]>
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script window.jQuery || document.write('<script src="/libs/jquery1/dist/jquery.min.js"><\/script>')
+    <![endif]-->
+
+    //[if gte IE 9]><!
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script window.jQuery || document.write('<script src="/libs/jquery/dist/jquery.min.js"><\/script>')
+    //<![endif]
+
+    //-script(src='/assets/scripts/vendor.min.js')
+    script(src='/assets/scripts/main.min.js')
 
     //- Google Analytics: change UA-XXXXX-X to be your site's ID.
     //-
