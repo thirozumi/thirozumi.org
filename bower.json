@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "jquery": "1",
+    "jquery1": "jquery#1",
+    "jquery": "~2.1.4",
     "modernizr": "~2.8.3"
   }
 }

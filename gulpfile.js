@@ -2,14 +2,13 @@
 
 /*
  * $ npm install gulp -g
- * $ npm install browser-sync del gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-rename gulp-cache gulp-plumber gulp-jade --save-dev
+ * $ npm install
  */
 
 // load plugins
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
+    please = require('gulp-pleeease'),
     jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
@@ -23,18 +22,20 @@ var gulp = require('gulp'),
 
 // styles
 gulp.task('styles', function() {
-    return gulp.src([
-        'app/assets/styles/main.scss'
-    ])
+    return sass('app/assets/styles/main.scss')
+    .on('error', function (err) {
+      console.error('Error!', err.message);
+    })
     .pipe(plumber())
-    .pipe(sass({
-        loadPath: process.cwd() + '/' + 'app/assets/styles',
-        style: 'compressed'
+    .pipe(please({
+      fallbacks: {
+        autoprefixer: ['last 4 versions']
+      },
+      optimizers: {
+        minifier: true
+      }
     }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('dist/assets/styles'))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(minifycss())
     .pipe(gulp.dest('dist/assets/styles'));
 });
 
@@ -57,9 +58,9 @@ gulp.task('scripts', function() {
 // bower components
 gulp.task('bower', function() {
     return gulp.src([
-      'app/assets/vendor/**/*'
+      'app/libs/**/*'
     ])
-    .pipe(gulp.dest('dist/assets/vendor'));
+    .pipe(gulp.dest('dist/libs'));
 } );
 
 // vendor scripts
