@@ -43,7 +43,8 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     return gulp.src([
         'app/assets/scripts/**/*.js',
-        '!app/assets/scripts/vendor/*.js'
+        '!app/assets/scripts/libs/*.js'
+        '!app/assets/scripts/plugins/*.js',
     ])
     .pipe(plumber())
     .pipe(jshint('.jshintrc'))
@@ -55,20 +56,20 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist/assets/scripts'));
 });
 
-// bower components
-gulp.task('bower', function() {
+// do not concatenate library scripts. just for copy.
+gulp.task('libs', function() {
     return gulp.src([
-      'app/libs/**/*'
+        'app/assets/scripts/libs/*.js'
     ])
-    .pipe(gulp.dest('dist/libs'));
-} );
+    .pipe(gulp.dest('dist/assets/scripts/libs'));
+});
 
 // vendor scripts
-gulp.task('vendor', function() {
+gulp.task('plugins', function() {
     return gulp.src([
-        'app/assets/scripts/vendor/*.js'
+        'app/assets/scripts/plugins/*.js'
     ])
-    .pipe(concat('vendor.js'))
+    .pipe(concat('plugins.js'))
     .pipe(gulp.dest('dist/assets/scripts'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
@@ -123,7 +124,9 @@ gulp.task('browsersync', function() {
   return browsersync.init(null, {
     server: {
       baseDir: './dist'
-    }
+    },
+    notify: false,
+    open: false
   });
 });
 
@@ -133,7 +136,7 @@ gulp.task('reload', function () {
 
 // default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('templates', 'styles', 'scripts', 'vendor', 'images', 'fonts', 'bower');
+    gulp.start('templates', 'styles', 'scripts', 'plugins', 'libs', 'images', 'fonts');
 });
 
 // watch
