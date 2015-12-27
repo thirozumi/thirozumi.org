@@ -111,12 +111,12 @@ gulp.task('templates', function () {
 });
 
 // clean
-gulp.task('clean', function(cb) {
-  del([
+gulp.task('clean', function() {
+  return del([
     'dist/assets/styles',
     'dist/assets/scripts',
     'dist/assets/images'
-  ], cb);
+  ]);
 });
 
 // browsersync
