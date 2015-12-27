@@ -43,8 +43,8 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     return gulp.src([
         'app/assets/scripts/**/*.js',
-        '!app/assets/scripts/libs/*.js'
-        '!app/assets/scripts/plugins/*.js',
+        '!app/assets/scripts/libs/*.js',
+        '!app/assets/scripts/plugins/*.js'
     ])
     .pipe(plumber())
     .pipe(jshint('.jshintrc'))
