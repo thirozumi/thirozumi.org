@@ -18,7 +18,8 @@ var gulp = require('gulp'),
     browsersync = require('browser-sync'),
     cache = require('gulp-cache'),
     plumber = require('gulp-plumber'),
-    pug = require('gulp-pug');
+    pug = require('gulp-pug'),
+    data = require('gulp-data');
 
 // styles
 gulp.task('styles', function() {
@@ -103,6 +104,12 @@ gulp.task('templates', function () {
         '!app/templates/_layouts/*.pug',
         '!app/templates/_includes/*.pug'
     ])
+    .pipe(data(function(file) {
+      return {
+        'meta': require('./app/assets/data/meta.json'),
+        'index': require('./app/assets/data/index.json')
+      };
+    }))
     .pipe(plumber())
     .pipe(pug({
         pretty: true

@@ -1,4 +1,11 @@
 extends _layouts/default
 
+block head
+  - var lang = meta.lang
+  - var locale = meta.locale
+  - var title = meta.title
+  - var description = meta.description
+  - var og_img = 'og.jpg';
+
 block main
-  p yoyo
+  p #{index.foo}

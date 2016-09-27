@@ -1,37 +1,73 @@
+- var dist = '/';
+- var assets = dist + 'assets';
+- var images = assets + '/images';
+- var styles = assets + '/styles';
+- var scripts = assets + '/scripts';
+- var protocol = 'http://';
+- var domain = 'newreel.jp';
+- var canonical = protocol + domain + dist;
+- var fb_app_id = '';
+
+block head
+  - var lang = '';
+  - var locale = '';
+  - var title = '';
+  - var description = '';
+  - var canonical = '';
+  - var og_img = '';
+
 doctype
-html.no-js
+html(lang=lang)
   head
+    title=title
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title
-    meta(name='description', content='')
+    meta(name='description', content=description)
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='assets/styles/main.min.css')
-    //-script(src='/libs/modernizr/modernizr.js')
+
+    meta(property='fb:app_id', content=fb_app_id)
+    meta(property='og:url', content=canonical)
+    meta(property='og:type', content='website')
+    meta(property='og:title', content=title)
+    meta(property='og:image', content=protocol + domain + images + '/' + og_img)
+    meta(property='og:description', content=description)
+    meta(property='og:site_name', content=title)
+    meta(property='og:locale', content=locale)
+    //- Facebook: https://developers.facebook.com/docs/sharing/webmasters#markup
+    //- Open Graph: http://ogp.me/
+
+    meta(name='twitter:card', content='summary_large_image')
+    meta(name='twitter:url', content=canonical)
+    meta(name='twitter:title', content=title)
+    meta(name='twitter:description', content=description)
+    meta(name='twitter:image', content=protocol + domain + images + '/' + og_img)
+    //- More info: https://dev.twitter.com/cards/getting-started
+    //- Validate: https://dev.twitter.com/docs/cards/validation/validator
+
+    //- link(rel='icon', href=images + '/favicon-16.png', sizes='16x16', type='image/png')
+    //- link(rel='icon', href=images + '/favicon-32.png', sizes='32x32', type='image/png')
+    //- link(rel='icon', href=images + '/favicon-48.png', sizes='48x48', type='image/png')
+    //- link(rel='icon', href=images + '/favicon-64.png', sizes='64x64', type='image/png')
+    link(rel='canonical', href=canonical)
+    link(rel='stylesheet', href=styles + '/main.min.css')
   body
-    <!--[if lt IE 8]>
-    p.browsehappy
-      | You are using an <strong>outdated</strong> browser.
-      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
-      | to improve your experience.
-    <![endif]-->
+    block alert
 
-    //- Add your site or application content here
     block main
-        p Hello world! This is HTML5 Boilerplate.
+      p Hello world!
 
-    <!--[if lt IE 9]>
+    //[if gte IE 9]><!
     script(src='//code.jquery.com/jquery-1.12.4.min.js', integrity='sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=', crossorigin='anonymous')
     script window.jQuery || document.write('<script src="/libs/jquery1/dist/jquery.min.js"><\/script>')
-    <![endif]-->
+    //<![endif]
 
     //[if gte IE 9]><!
     script(src='//code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
     script window.jQuery || document.write('<script src="/libs/jquery/dist/jquery.min.js"><\/script>')
     //<![endif]
 
-    //-script(src='/assets/scripts/vendor.min.js')
-    script(src='/assets/scripts/main.min.js')
+    //-script(src='#{scripts}/vendor.min.js')
+    script(src=scripts + '/main.min.js')
 
     //- Google Analytics: change UA-XXXXX-X to be your site's ID.
     //-
