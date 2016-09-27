@@ -1,4 +1,4 @@
-# gulp-jade-webapp
+# gulp-pug-webapp
 
 ## Build
 
