@@ -1,5 +1,5 @@
 {
-  "name": "gulp-jade-webapp",
+  "name": "gulp-pug-webapp",
   "version": "0.0.1",
   "private": true,
   "dependencies": {},
