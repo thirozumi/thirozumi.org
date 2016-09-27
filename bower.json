@@ -5,7 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "jquery1": "jquery#1",
-    "jquery": "~2.1.4",
+    "jquery": "jquery#3",
     "feature.js": "^1.0.1"
   }
 }

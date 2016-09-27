@@ -18,7 +18,7 @@ var gulp = require('gulp'),
     browsersync = require('browser-sync'),
     cache = require('gulp-cache'),
     plumber = require('gulp-plumber'),
-    jade = require('gulp-jade');
+    pug = require('gulp-pug');
 
 // styles
 gulp.task('styles', function() {
@@ -99,12 +99,12 @@ gulp.task('images', function() {
 // templates
 gulp.task('templates', function () {
     gulp.src([
-        'app/templates/**/*.jade',
-        '!app/templates/_layouts/*.jade',
-        '!app/templates/_includes/*.jade'
+        'app/templates/**/*.pug',
+        '!app/templates/_layouts/*.pug',
+        '!app/templates/_includes/*.pug'
     ])
     .pipe(plumber())
-    .pipe(jade({
+    .pipe(pug({
         pretty: true
     }))
     .pipe(gulp.dest('dist'));
@@ -143,7 +143,7 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', ['browsersync'], function() {
 
     // watch templates
-    gulp.watch('app/templates/**/*.jade', ['templates']);
+    gulp.watch('app/templates/**/*.pug', ['templates']);
 
     // watch assets
     gulp.watch('app/assets/styles/**/*.scss', ['styles']);
