@@ -131,7 +131,7 @@ gulp.task('browsersync', function() {
     server: {
       baseDir: './dist'
     },
-    startPath: "/html",
+    startPath: '/html',
     notify: false,
     open: false
   });
