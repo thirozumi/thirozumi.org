@@ -4,21 +4,21 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.7.6",
-    "del": "^2.2.0",
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
     "fs": "0.0.1-security",
-    "gulp": "^3.8.11",
-    "gulp-cache": "^0.4.1",
-    "gulp-concat": "^2.5.2",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^0.4.6",
+    "gulp-concat": "^2.6.1",
     "gulp-data": "^1.2.1",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-jshint": "^2.0.0",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-jshint": "^2.0.4",
     "gulp-pleeease": "2.0.2",
-    "gulp-plumber": "^1.0.1",
-    "gulp-pug": "^3.0.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^2.0.6",
-    "gulp-uglify": "^2.0.0",
-    "jshint": "^2.9.1"
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5"
   }
 }
