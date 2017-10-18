@@ -1,0 +1,67 @@
+
+//
+// Scaffolding
+// --------------------------------------------------
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  color: $text-color;
+  background-color: $body-bg;
+  font-family: $font-family-base;
+  line-height: $line-height;
+  @include font-size($fs-base);
+  font-feature-settings: 'pkna' 1;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+}
+
+// Headings
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1, .h1 { @include font-size($fs-huge); }
+h2, .h2 { @include font-size($fs-xl); }
+h3, .h3 { @include font-size($fs-lg); }
+h4, .h4 { @include font-size($fs-base); }
+h5, .h5 { @include font-size($fs-sm); }
+h6, .h6 { @include font-size($fs-xs); }
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}

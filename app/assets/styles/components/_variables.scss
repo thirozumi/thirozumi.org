@@ -1,0 +1,88 @@
+
+//
+// Vars
+// --------------------------------------------------
+
+// Pathes
+$images: '/assets/images/' !default;
+
+// Colors
+$body-bg:                 #fff !default;
+$text-color:              #333 !default;
+$brand-primary:           #00e !default;
+$link-color:              $brand-primary !default;
+$link-hover-color:        darken($link-color, 15%) !default;
+
+// Typography
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+$font-weight-base:        normal !default;
+
+// Font Size
+$fs-breakpoint: 640px !default;
+
+$font-size-huge:          2,4rem !default;
+$font-size-xl:            2rem !default;
+$font-size-lg:            1.8rem !default;
+$font-size-base:            1.6rem !default;
+$font-size-sm:            1.4rem !default;
+$font-size-xs:            1.2rem !default;
+$font-size-tiny:          1rem !default;
+
+$fs-tiny: (null: $font-size-tiny,  $fs-breakpoint: $font-size-tiny) !default;
+$fs-xs:   (null: $font-size-tiny,  $fs-breakpoint: $font-size-xs) !default;
+$fs-sm:   (null: $font-size-xs,    $fs-breakpoint: $font-size-sm) !default;
+$fs-base: (null: $font-size-sm,    $fs-breakpoint: $font-size-base) !default;
+$fs-lg:   (null: $font-size-base,    $fs-breakpoint: $font-size-lg) !default;
+$fs-xl:   (null: $font-size-lg,    $fs-breakpoint: $font-size-xl) !default;
+$fs-huge: (null: $font-size-xl,    $fs-breakpoint: $font-size-huge) !default;
+
+$font-size-h1:            $font-size-huge !default;
+$font-size-h2:            $font-size-xl !default;
+$font-size-h3:            $font-size-lg !default;
+$font-size-h4:            $font-size-base !default;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            $font-size-base !default;
+
+$line-height:             1.8 !default;
+$spacer:                  $line-height * $font-size-base !default;
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit !default;
+$headings-font-weight:    500 !default;
+$headings-line-height:    1.4 !default;
+$headings-color:          inherit !default;
+
+// Grid
+$grid-columns: 12 !default; // Set number of columns in the grid
+$gutter:       4rem !default;
+
+$xs-max: 640px !default; // Set xs breakpoint's max width
+$sm-max: 1024px !default; // Set sm breakpoint's max width
+$md-max: 1440px !default; // Set md breakpoint's max width
+$lg-max: 1920px !default; // Set lg breakpoint's max width
+
+$sm-start: ($xs-max + 1) !default; // Set sm breakpoint's min width
+$md-start: ($sm-max + 1) !default; // Set md breakpoint's min width
+$lg-start: ($md-max + 1) !default; // Set lg breakpoint's min width
+$xl-start: ($lg-max + 1) !default; // Set xl breakpoint's min width
+
+$content-well-max-width: 9999px !default; // Set the max-width of the content well
+
+// Breakpoints
+// Create breakpoint range statements to be used in media queries
+$breakpoint-xs-only: "only screen and (max-width: #{$xs-max})" !default; // 0 -> xs-max range
+$breakpoint-sm-up: "only screen and (min-width: #{$sm-start})" !default; // sm-start -> up range
+$breakpoint-sm-only: "only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-max})" !default; // sm-start -> sm-max range
+$breakpoint-md-up: "only screen and (min-width: #{$md-start})" !default; // md-start -> up range
+$breakpoint-md-only: "only screen and (min-width: #{$md-start}) and (max-width: #{$md-max})" !default; // md-start -> md-max range
+$breakpoint-lg-up: "only screen and (min-width: #{$lg-start})" !default; // lg-start -> up range
+$breakpoint-lg-only: "only screen and (min-width: #{$lg-start}) and (max-width: #{$lg-max})" !default; // lg-start -> lg-max range
+$breakpoint-xl-up: "only screen and (min-width: #{$xl-start})" !default; // xl-start -> up range
+
+$breakpoints-all: ($breakpoint-xs-only, $breakpoint-sm-up, $breakpoint-sm-only, $breakpoint-md-up, $breakpoint-md-only, $breakpoint-lg-up, $breakpoint-lg-only, $breakpoint-xl-up) !default;
+$breakpoint-ups: ($breakpoint-sm-up, $breakpoint-md-up, $breakpoint-lg-up, $breakpoint-xl-up) !default;
+$breakpoint-all-prefixes: ("xs", "xs-only", "sm", "sm-only", "md", "md-only", "lg", "lg-only", "xl") !default;
+$breakpoint-up-prefixes: ("xs", "sm", "md", "lg", "xl") !default;
