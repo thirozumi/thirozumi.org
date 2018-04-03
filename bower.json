@@ -4,8 +4,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "jquery1": "jquery#1",
-    "jquery": "jquery#3",
-    "feature.js": "^1.0.1"
+    "feature.js": "^1.0.1",
+    "jquery": "^3.3.1"
   }
 }
