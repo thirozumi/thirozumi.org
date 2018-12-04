@@ -5,12 +5,28 @@ block head
   - var locale = meta.locale
   - var title = meta.title
   - var description = meta.description
-  - var og_img = 'og.jpg';
+  - var og_img = 'og.png';
 
 block main
-  .container-md
-    .row
-      .col
-        p #{index.foo}
-      .col
-        p #{index.bar}
+  main(role='main')
+    h1
+      | Hirozumi Takeda
+    p
+      | Designer, Developper, Director.
+    p
+      | Founder at
+      |
+      a(href='https://h4us.jp')
+        | HAUS
+      | .
+    p
+      | Lecturer at Joshibi University of Art and Design.
+    ul
+      li
+        a(href='https://github.com/thirozumi') GitHub
+      li
+        a(href='https://twitter.com/thirozumi') Twitter
+      li
+        a(href='https://www.instagram.com/thirozumi/') Instagram
+      li
+        a(href='https://www.facebook.com/thirozumi') Facebook

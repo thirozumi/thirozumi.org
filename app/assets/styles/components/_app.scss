@@ -1,0 +1,29 @@
+body {
+  @include font-size($fs-huge);
+}
+
+main {
+  margin: $spacer;
+}
+
+h1, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  > li {
+    display: inline-block;
+    margin-right: .1em;
+  }
+}
+
+// Links
+a {
+  &:hover,
+  &:focus {
+    opacity: .5;
+    text-decoration: none;
+  }
+}

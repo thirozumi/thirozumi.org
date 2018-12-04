@@ -3,33 +3,41 @@
 // Vars
 // --------------------------------------------------
 
+@font-face {
+  font-family: 'Inter UI';
+  font-style:  normal;
+  font-weight: 400;
+  src: url("../fonts/Inter-UI-Regular.woff2") format("woff2"),
+       url("../fonts/Inter-UI-Regular.woff") format("woff");
+}
+
 // Pathes
 $images: '/assets/images/' !default;
 
 // Colors
 $body-bg:                 #fff !default;
-$text-color:              #333 !default;
-$brand-primary:           #00e !default;
+$text-color:              #000 !default;
+$brand-primary:           #000 !default;
 $link-color:              $brand-primary !default;
-$link-hover-color:        darken($link-color, 15%) !default;
+$link-hover-color:        lighten($link-color, 25%) !default;
 
 // Typography
-$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-sans-serif: 'Inter UI', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
-$font-weight-base:        normal !default;
+$font-weight-base:        400 !default;
 
 // Font Size
-$fs-breakpoint: 640px !default;
+$fs-breakpoint:           640px !default;
 
-$font-size-huge:          2,4rem !default;
-$font-size-xl:            2rem !default;
-$font-size-lg:            1.8rem !default;
-$font-size-base:            1.6rem !default;
-$font-size-sm:            1.4rem !default;
-$font-size-xs:            1.2rem !default;
-$font-size-tiny:          1rem !default;
+$font-size-huge:          7.2rem !default;
+$font-size-xl:            4.8rem !default;
+$font-size-lg:            3.2rem !default;
+$font-size-base:          2.4rem !default;
+$font-size-sm:            2rem !default;
+$font-size-xs:            1.6rem !default;
+$font-size-tiny:          1.4rem !default;
 
 $fs-tiny: (null: $font-size-tiny,  $fs-breakpoint: $font-size-tiny) !default;
 $fs-xs:   (null: $font-size-tiny,  $fs-breakpoint: $font-size-xs) !default;
@@ -46,13 +54,13 @@ $font-size-h4:            $font-size-base !default;
 $font-size-h5:            $font-size-base !default;
 $font-size-h6:            $font-size-base !default;
 
-$line-height:             1.8 !default;
+$line-height:             1 !default;
 $spacer:                  $line-height * $font-size-base !default;
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
-$headings-font-weight:    500 !default;
-$headings-line-height:    1.4 !default;
+$headings-font-weight:    400 !default;
+$headings-line-height:    1 !default;
 $headings-color:          inherit !default;
 
 // Grid
