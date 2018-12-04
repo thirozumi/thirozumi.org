@@ -18,7 +18,8 @@ body {
   font-family: $font-family-base;
   line-height: $line-height;
   @include font-size($fs-base);
-  font-feature-settings: 'pkna' 1;
+  font-feature-settings: 'palt' 1;
+  font-weight: $font-weight-base;
 }
 
 // Reset fonts for relevant elements

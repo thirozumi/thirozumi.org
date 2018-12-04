@@ -1,51 +1,61 @@
 
 //
-// Mixins
+// Utilities
 // --------------------------------------------------
 
-
-// Clearfix
-@mixin clearfix {
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-  & {
-    *zoom: 1;
-  }
+.show {
+  display: block;
 }
 
-// font-size
-@mixin font-size($fs-map) {
-  @each $fs-breakpoint, $fs-font-size in $fs-map {
-    @if $fs-breakpoint == null {
-      font-size: $fs-font-size;
-    }
-    @else {
-      @media screen and (min-width: $fs-breakpoint) {
-        font-size: $fs-font-size;
-      }
-    }
-  }
+.hide {
+  display: none;
 }
 
-// Maintain Aspect Ratio
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
+// Mixin to run inside of for loop - creates visibility classes * Not for developer use *
+@mixin vis-factory($thisPrefix) {
+  .show-#{$thisPrefix} {
     display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
   }
-  > &-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .hide-#{$thisPrefix} {
+    display: none;
+  }
+} // Mixin to run inside of for loop - creates visibility classes * Not for developer use *
+
+@for $i from 1 through length($breakpoint-all-prefixes) {
+  $thisPrefix: nth($breakpoint-all-prefixes, $i);
+  @if $thisPrefix == "xs" {
+    @include vis-factory($thisPrefix);
+  } @else if $thisPrefix == "xs-only" {
+    @media #{$breakpoint-xs-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "sm" {
+    @media #{$breakpoint-sm-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "sm-only" {
+    @media #{$breakpoint-sm-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "md" {
+    @media #{$breakpoint-md-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "md-only" {
+    @media #{$breakpoint-md-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "lg" {
+    @media #{$breakpoint-lg-up} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "lg-only" {
+    @media #{$breakpoint-lg-only} {
+      @include vis-factory($thisPrefix);
+    }
+  } @else if $thisPrefix == "xl" {
+    @media #{$breakpoint-xl-up} {
+      @include vis-factory($thisPrefix);
+    }
   }
 }
