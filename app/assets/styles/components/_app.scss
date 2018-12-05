@@ -3,7 +3,10 @@ body {
 }
 
 main {
-  margin: $spacer;
+  margin: $spacer / 2;
+  @include screen(sm) {
+    margin: $spacer;
+  }
 }
 
 h1, p, ul {

@@ -3,6 +3,11 @@
 // Mixins
 // --------------------------------------------------
 
+@mixin screen($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
 
 // Clearfix
 @mixin clearfix {
