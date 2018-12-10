@@ -5,7 +5,7 @@
 ```
 npm install
 gulp
-open dist/index.html
+open docs/index.html
 ```
 
 ## Dev
