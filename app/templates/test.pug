@@ -1,0 +1,13 @@
+extends _layouts/default
+
+block head
+  - var lang = meta.lang
+  - var locale = meta.locale
+  - var title = meta.title
+  - var description = meta.description
+  - var og_img = 'og.png';
+
+block main
+  main(role='main')
+    h1
+      | Test
