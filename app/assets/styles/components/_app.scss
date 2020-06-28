@@ -1,12 +1,5 @@
-body {
-  @include font-size($fs-huge);
-}
-
 main {
-  margin: $spacer / 2;
-  @include screen(sm) {
-    margin: $spacer;
-  }
+  margin: $spacer;
 }
 
 h1, p, ul {
