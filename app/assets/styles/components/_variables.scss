@@ -3,12 +3,7 @@
 // Vars
 // --------------------------------------------------
 
-@font-face {
-  font-family: 'Circular';
-  font-style:  normal;
-  font-weight: 400;
-  src: url("../fonts/circular-regular.woff") format("woff")
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 // Pathes
 $images: '/assets/images/' !default;
@@ -24,7 +19,7 @@ $body-bg-dark:            #222 !default;
 $text-color-dark:         #d9d9d9 !default;
 
 // Typography
-$font-family-sans-serif: 'Circular', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-sans-serif:  'Inter', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
