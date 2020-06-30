@@ -1,6 +1,13 @@
-main {
+body {
+  @media (prefers-color-scheme: dark) {
+    color: $text-color-dark;
+    background-color: $body-bg-dark;
+  }
+}
+
+main, nav {
   margin: $spacer / 2;
-  @include screen(sm) {
+  @include screen(md) {
     margin: $spacer;
   }
 }
@@ -10,17 +17,15 @@ h1, p, ul {
   padding: 0;
 }
 
-ul {
-  list-style: none;
-  > li {
-    display: inline-block;
-  }
-}
-
-// Links
 a {
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+}
+
+img {
+  @media (prefers-color-scheme: dark) {
+    filter: grayscale(30%);
   }
 }

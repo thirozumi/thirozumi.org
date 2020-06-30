@@ -8,20 +8,22 @@ html {
 }
 
 body {
+  margin: 0;
   color: $text-color;
   background-color: $body-bg;
   font-family: $font-family-base;
   line-height: $line-height;
   font-feature-settings: 'palt' 1;
   font-weight: $font-weight-base;
-  @media (prefers-color-scheme: dark) {
-    color: $text-color-dark;
-    background-color: $body-bg-dark;
-  }
 }
 
-ol, ul {
+nav {
   list-style: none;
+  ol, ul {
+    > li {
+      display: inline-block;
+    }
+  }
 }
 
 input,
@@ -56,8 +58,5 @@ h4, .h4, h5, .h5, h6, .h6 {
 img {
   max-width: 100%;
   height: auto;
-  vertical-align: middle;
-  @media (prefers-color-scheme: dark) {
-    filter: grayscale(30%);
-  }
+  vertical-align: bottom;
 }
