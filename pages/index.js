@@ -7,8 +7,10 @@ export default function Home() {
         <title>Hirozumi Takeda</title>
         <meta name="description" content="Designer, Developper, Director. Founder at HAUS. Lecturer at Joshibi University of Art and Design." />
       </Head>
-      <main>
+      <header>
         <h1>Hirozumi Takeda</h1>
+      </header>
+      <main>
         <p>Designer, Developer, Director.</p>
         <p>Founder at <a href="https://h4us.jp">HAUS</a>.</p>
         <p>Lecturer at Joshibi University of Art and Design.</p>
