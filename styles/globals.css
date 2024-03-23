@@ -35,12 +35,12 @@ body {
   font-weight: var(--fw-base);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
   line-height: var(--lh-skinny);
-  margin: 0;
+  margin: var(--gutter);
   padding: 0;
 }
 
 header, main, nav, footer {
-  margin: var(--gutter);
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

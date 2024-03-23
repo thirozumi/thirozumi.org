@@ -12,17 +12,13 @@ export default function Home() {
         <h1>Hirozumi Takeda</h1>
       </header>
       <main>
-        <p>Designer, Developer, Director.</p>
-        <p>Founder at <a href='https://h4us.jp'>HAUS</a>.</p>
-        <p>Lecturer at Joshibi University of Art and Design.</p>
+        <p>Designer, Developer</p>
+        <p>Found at <a href='https://h4us.jp'>HAUS</a></p>
       </main>
       <nav>
         <ul>
           <li><a href='https://github.com/thirozumi'>GitHub</a></li>
-          <li><a href='https://are.na/hirozumi-takeda'>Are.na</a></li>
-          <li><a href='https://twitter.com/thirozumi'>Twitter</a></li>
           <li><a href='https://www.instagram.com/thirozumi/'>Instagram</a></li>
-          <li><a href='https://www.facebook.com/thirozumi'>Facebook</a></li>
         </ul>
       </nav>
       <footer>
